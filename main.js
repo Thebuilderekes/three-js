@@ -39,3 +39,33 @@ const light = new THREE.PointLight(0xff0000, 1, 100);
 // this is to set the position of the light along the x, y and z axis
 light.position.set(0, 10, 10);
 scene.add(light);
+
+//renderer
+const canvas = document.querySelector(".webgl");
+const renderer = new THREE.WebGLRenderer({ canvas });
+renderer.setSize(sizes.width, sizes.height);
+renderer.render(scene, camera);
+
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+
+//Resize
+window.addEventListener("resize", function () {
+	console.log(this.window.innerWidth);
+	//update sizes
+	sizes.width = window.innerWidth;
+	sizes.height = window.innerHeight;
+
+	// update camera
+
+	camera.aspect = sizes.width / sizes.height;
+	camera.updateProjectionMatrix();
+	renderer.setSize(sizes.width, sizes.height);
+});
+
+const loop = () => {
+	renderer.render(scene, camera);
+	window.requestAnimationFrame(loop);
+};
+
+loop();
