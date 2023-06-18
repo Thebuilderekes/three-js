@@ -16,6 +16,12 @@ const mesh = new THREE.Mesh(geometry, material);
 
 scene.add(mesh);
 
+//Sizes
+const sizes = {
+	width: window.innerWidth,
+	height: window.innerHeight,
+};
+
 //Camera
 //camera with field of view 45, and aspect ratio 800/600 clipping point of between 0.1 and 100
 const camera = new THREE.PerspectiveCamera(
@@ -27,3 +33,9 @@ const camera = new THREE.PerspectiveCamera(
 //this makes sure that the camerais moved so that the spereand the scene do not overlap. the higher the position vaue, the clos the camera and the larger the sphere appears.
 camera.position.z = 20;
 scene.add(camera);
+
+//light
+const light = new THREE.PointLight(0xff0000, 1, 100);
+// this is to set the position of the light along the x, y and z axis
+light.position.set(0, 10, 10);
+scene.add(light);
