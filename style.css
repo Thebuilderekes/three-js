@@ -12,5 +12,47 @@ html {
 html,
 body {
 	overflow-x: hidden;
-	color: #00ff83;
+	color: #ffffff;
+	font-family: "Sen", sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #ffffff;
+	font-size: 1.2rem;
+}
+
+.webgl {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	text-decoration: none;
+	width: 100%;
+	padding: 20px;
+	z-index: 2;
+}
+
+nav > a {
+	font-weight: 700;
+}
+nav ul {
+	display: flex;
+	list-style: none;
+	gap: 0.8rem;
+}
+
+.title {
+	position: absolute;
+	z-index: 2;
+	left: 50%;
+	top: 85%;
+	transform: translate(-50%, -85%);
 }
